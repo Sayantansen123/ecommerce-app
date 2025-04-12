@@ -13,11 +13,24 @@ export const useUserStore = create((set,get)=>({
             set({loading:false})
             return toast.error("Passwords do not match")
         }
-        console.log("typed")
+        
         try{
          const res = await axios.post("/auth/signup",{name,email,password});
          set({user: res.data,loading:false});
+         toast.success("Your account created")
 
+        }catch(error){
+         set({loading:false})
+         toast.error(error?.response?.data?.message || "An error ocurred try again");
+        }
+    },
+
+    login: async (email,password) => {
+        set({loading:true})
+        try{
+         const res = await axios.post("/auth/login",{email,password});
+         set({user: res.data,loading:false});
+         toast.success("You succesfuly logged in")
         }catch(error){
          set({loading:false})
          toast.error(error?.response?.data?.message || "An error ocurred try again");
