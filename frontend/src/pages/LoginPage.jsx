@@ -4,11 +4,14 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { LogIn, Mail, Lock, ArrowRight, Loader } from "lucide-react";
 
+
 const LoginPage = () => {
 
   const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
   const loading = false
+
+ 
 
   const handleSubmit = (e) => {
 		e.preventDefault();
@@ -35,8 +38,6 @@ const LoginPage = () => {
     >
       <div className='bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10'>
         <form onSubmit={handleSubmit} className='space-y-6'>
-
-          
 
           <div>
             <label htmlFor='email' className='block text-sm font-medium text-gray-300'>
