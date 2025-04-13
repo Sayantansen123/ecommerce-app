@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import axios from "../utils/axios";
 import toast from "react-hot-toast";
+import { Navigate } from "react-router-dom";
 
 export const useUserStore = create((set,get)=>({
     user:null,
@@ -18,10 +19,12 @@ export const useUserStore = create((set,get)=>({
          const res = await axios.post("/auth/signup",{name,email,password});
          set({user: res.data,loading:false});
          toast.success("Your account created")
+         
 
         }catch(error){
          set({loading:false})
-         toast.error(error?.response?.data?.message || "An error ocurred try again");
+         console.log(error)
+         toast.error(error?.response?.data?.message ||error?.response?.data || "An error ocurred try again");
         }
     },
 
