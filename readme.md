@@ -5,6 +5,7 @@ Shopify is a full-featured eCommerce web application built using the **MERN stac
 ---
 
 ## Work Flow
+![Screenshot 2025-05-03 014257](https://github.com/user-attachments/assets/1a31b356-f809-495a-84c4-3ccca8e907e8)
 
 
 ## 🚀 Features
