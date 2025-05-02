@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//order schema for ordering and item
 const orderSchema = new mongoose.Schema(
 	{
 		user: {
@@ -31,10 +32,7 @@ const orderSchema = new mongoose.Schema(
 			required: true,
 			min: 0,
 		},
-		stripeSessionId: {
-			type: String,
-			unique: true,
-		},
+		
 	},
 	{ timestamps: true }
 );

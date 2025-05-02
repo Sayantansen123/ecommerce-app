@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//creating coupon for discount
 const couponSchema = new mongoose.Schema(
 	{
 		code: {

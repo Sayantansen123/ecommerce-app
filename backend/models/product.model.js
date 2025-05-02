@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//product detail schema
 const productSchema = new mongoose.Schema(
 	{
 		name: {
