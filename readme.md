@@ -1,10 +1,11 @@
-# 🛍️ Shopify – MERN Stack E-commerce Application
+# 🛍️ ShopX – MERN Stack E-commerce Application
 
 Shopify is a full-featured eCommerce web application built using the **MERN stack (MongoDB, Express, React, Node.js)**. It includes robust functionality like user authentication with **refresh token storage in Redis**, a **coupon system**, **featured product caching**, **shopping cart**, and a **payment system**, providing a seamless user experience from browsing to checkout.
 
 ---
 
 ## Work Flow
+![Screenshot 2025-05-03 014257](https://github.com/user-attachments/assets/1a31b356-f809-495a-84c4-3ccca8e907e8)
 
 
 ## 🚀 Features
