@@ -1,6 +1,6 @@
 import Coupon from "../models/coupon.model.js";
 
-
+//find the coupon exist or not
 export const getCoupon = async (req, res) => {
 	try {
 		const coupon = await Coupon.findOne({ userId: req.user._id, isActive: true });
@@ -11,6 +11,7 @@ export const getCoupon = async (req, res) => {
 	}
 };
 
+//validate the given coupon is active or assigned to the user
 export const validateCoupon = async (req, res) => {
 	try {
 		const { code } = req.body;

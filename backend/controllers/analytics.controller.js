@@ -2,6 +2,7 @@ import Order from "../models/order.model.js";
 import Product from "../models/product.model.js";
 import User from "../models/user.model.js"
 
+//get users and product
 export const getAnalyticsData = async()=>{
   const totalUsers = await User.countDocuments();
   const totalProducts = await Product.countDocuments();
@@ -27,7 +28,7 @@ export const getAnalyticsData = async()=>{
 	};
 }
 
-
+//get daily sales data
 export const getDailySalesData = async (startDate, endDate) => {
 	try {
 		const dailySalesData = await Order.aggregate([
@@ -66,6 +67,7 @@ export const getDailySalesData = async (startDate, endDate) => {
 	}
 };
 
+//get dates in range
 function getDatesInRange(startDate, endDate) {
 	const dates = [];
 	let currentDate = new Date(startDate);

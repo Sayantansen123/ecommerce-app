@@ -1,9 +1,10 @@
 import Product from "../models/product.model.js";
 
 
-
+//getting the cart products
 export const getCartProducts = async (req, res) => {
 	try {
+		//find the products
 		const products = await Product.find({ _id: { $in: req.user.cartItems } });
 
 		// add quantity for each product
@@ -19,12 +20,13 @@ export const getCartProducts = async (req, res) => {
 	}
 };
 
-
+//adding to the cart
 export const addToCart = async (req, res) => {
     try {
         const { productId } = req.body;
         const user = req.user;
-
+        
+		//if the item exist increase it
         const existingItem = user.cartItems.find(item => item.id === productId);
         if(existingItem){
             existingItem.quantity += 1
@@ -41,7 +43,7 @@ export const addToCart = async (req, res) => {
     }
 }
 
-
+//remove all cart item
 export const removeAllFromCart = async (req, res) => {
 	try {
 		const { productId } = req.body;
@@ -49,6 +51,7 @@ export const removeAllFromCart = async (req, res) => {
 		if (!productId) {
 			user.cartItems = [];
 		} else {
+			//remove the single item
 			user.cartItems = user.cartItems.filter((item) => item.id !== productId);
 		}
 		await user.save();
@@ -58,7 +61,7 @@ export const removeAllFromCart = async (req, res) => {
 	}
 };
 
-
+//update the item
 export const updateQuantity = async (req, res) => {
 	try {
 		const { id: productId } = req.params;
