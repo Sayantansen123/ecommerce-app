@@ -15,6 +15,7 @@ export const useProductStore = create((set)=>({
 				products: [...prevState.products, res.data],
 				loading: false,
 			}));
+			toast.success("Your product added")
 		} catch (error) {
 			toast.error(error.response.data.error);
 			set({ loading: false });
@@ -31,7 +32,7 @@ export const useProductStore = create((set)=>({
 			toast.error(error.response.data.error || "Failed to fetch products");
 		}
 	},
-	
+
 	fetchProductsByCategory: async (category) => {
 		set({ loading: true });
 		try {
@@ -50,6 +51,7 @@ export const useProductStore = create((set)=>({
 				products: prevProducts.products.filter((product) => product._id !== productId),
 				loading: false,
 			}));
+			toast.success("Your product removed")
 		} catch (error) {
 			set({ loading: false });
 			toast.error(error.response.data.error || "Failed to delete product");
